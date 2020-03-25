@@ -27,7 +27,6 @@ bool Utils::loadDictionary(const string& text_dic)
     load_file.close();
 
     // scan the string this->content, calculate the frequency table
-    // insert your code here ...
     for (int i = 0; i < this->content.length(); ++i) {
             frequency_table[this->content[i]]++;
     }
@@ -55,15 +54,6 @@ void Utils::saveBinDictionary(const string& bin_file)
     }
 
     ofstream ofile(bin_file, ios::binary);
-
-
-    // assuming that the length of bin_code is multiple of 8
-    // so just for every 8 continuous {0,1} characters, intepret it as a binary byte number
-    // for last byte you write, its valid length may be less than 8, fill the invalid bits with 0
-    // eg., last byte contains only 3 valid bits, 110. You should fill it as 1100 0000, and then
-    // you need to write integer 3 (bin form: 0000 0011) as one byte at the beginning of your binary file.
-    // after saving data into .bin file, you should print out its hex form in command line
-    // insert your code here ...
 
     string bin_code = "";
     string raw = "";
@@ -129,12 +119,14 @@ void swap(char& c1, char& c2) {
     c1 = c2;
     c2 = temp;
 }
+
 void reverse(string& toReverse) {
     int n = toReverse.length();
 
     for (int i = 0; i < n/2; ++i)
         swap(toReverse[i], toReverse[n - i - 1]);
 }
+
 void Utils::decode(const string& bin_file)
 {
     ifstream ifile(bin_file, ios::binary);
@@ -156,8 +148,6 @@ void Utils::decode(const string& bin_file)
 
     // bin_file: stores a binary huffman code with possible extra bits at the end
     // key_file: decryption XOR key
-    // search in the encoded table
-    // insert your code here ...
     char ch_code;
     char ch_key;
     unsigned char decoded;
