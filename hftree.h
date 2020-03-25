@@ -34,8 +34,6 @@ public:
     string decode(const string& bin_str);
 
     // release all tree nodes
-    // you must use non-recursive post-order traversal to release the tree
-    // if you use recursive deletion, you will lose partial marks of this PA
     void release();
 
 private:
