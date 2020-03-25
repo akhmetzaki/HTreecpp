@@ -29,8 +29,7 @@ struct minPriority {
 };
 void HuffmanTree::loadMap(map<char, int> frequency_table)
 {
-    // create an minimum priority queue in STL
-    // insert your code here ...
+    
     priority_queue<HuffmanTreeNode*, vector<HuffmanTreeNode*>, minPriority> myQ;
     map<char, int>::const_iterator it = frequency_table.begin();
     for (; it != frequency_table.end(); ++it) {
@@ -59,7 +58,7 @@ void HuffmanTree::loadMap(map<char, int> frequency_table)
 void HuffmanTree::mergeTree(HuffmanTreeNode *bt1, HuffmanTreeNode *bt2,
                        HuffmanTreeNode *pt)
 {
-    // insert your code here ...
+
     pt->leftChild = bt1;
     pt->rightChild = bt2;
     pt->key = '\0';
@@ -69,12 +68,7 @@ void HuffmanTree::mergeTree(HuffmanTreeNode *bt1, HuffmanTreeNode *bt2,
 
 void HuffmanTree::encode(map<char, string>& encoded_table)
 {
-    // go through every path from root to leaf, then get the encoding of each character(leaf node)
-    // you are NOT allowed to use any recursive method here, otherwise you'll get no marks for this function
-    // try level-order traversal on this Huffman Tree
-    // result encoded_table: char -- character set, string -- encoding of leaf node, like "00", "1001"...
-
-    // insert your code here ...
+    
     queue<HuffmanTreeNode*> Q;
     Q.push(hfTree);
 
@@ -99,7 +93,6 @@ void HuffmanTree::encode(map<char, string>& encoded_table)
 string HuffmanTree::decode(const string& bin_str)
 {
     // decode a binary string to plaintext
-    // insert your code here ...
     string plaintext = "";
 
     HuffmanTreeNode* temp = hfTree;
@@ -134,12 +127,6 @@ string HuffmanTree::decode(const string& bin_str)
 
 void HuffmanTree::release()
 {
-    // release all tree nodes in post-order
-    // you must use non-recursive traversal to release the tree
-    // you need to print out the weight of nodes with post-order when you delete the node
-    // hint: try to use stack
-    // if you use recursive deletion, you will lose partial marks of this PA
-
     cout << "[start releasing the huffman tree...]" << endl;
     if (hfTree == NULL)
         return;
